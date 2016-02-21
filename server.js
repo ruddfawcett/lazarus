@@ -1,21 +1,14 @@
+var Q = require('q');
 var express = require('express');
+
 var app = express();
 var port = process.env.PORT || 8080;
 
-app.get('/', function (req, res) {
-  res.json({error: 'Nothing to see here... yet.'});
-});
-
 var router = express.Router();
-
-router.use(function(req, res, next) {
-  next();
-});
 
 router.get('/nytimes', function(req, res) {
   var nytimes = require('./lib/sources/nytimes');
-
-  nytimes.fetch(function(articles) {
+  nytimes.fetch().then(function(articles) {
     res.json(articles);
   });
 });
@@ -23,7 +16,7 @@ router.get('/nytimes', function(req, res) {
 router.get('/iht', function(req, res) {
   var iht = require('./lib/sources/iht');
 
-  iht.fetch(function(articles) {
+  iht.fetch().then(function(articles) {
     res.json(articles);
   });
 });
@@ -31,7 +24,7 @@ router.get('/iht', function(req, res) {
 router.get('/guardian', function(req, res) {
   var guardian = require('./lib/sources/guardian');
 
-  guardian.fetch(function(articles) {
+  guardian.fetch().then(function(articles) {
     res.json(articles);
   });
 });
@@ -39,9 +32,7 @@ router.get('/guardian', function(req, res) {
 router.get('/shuffled', function(req, res) {
   var shuffled = require('./lib/shuffled');
 
-  shuffled.fetch(function(articles) {
-    res.json(articles);
-  });
+  shuffled.fetch(req, res);
 });
 
 app.use('/api/v1/articles', router);

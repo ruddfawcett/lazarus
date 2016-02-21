@@ -6,6 +6,11 @@ Lazarus is part of **The Poetry Project**, which encourages people to write, rea
 
 > Emma Lazarus (July 22, 1849 – November 19, 1887) was an American poet born in New York City.  She is best known for "The New Colossus", a sonnet written in 1883; its lines appear inscribed on a bronze plaque in the pedestal of the Statue of Liberty installed in 1903, a decade and a half after Lazarus's death. -- [Wikipedia](https://en.wikipedia.org/wiki/Emma_Lazarus)
 
+## Getting Started
+To run your own version of lazarus, register for a [*New York Times* API Key](http://developers.nytimes.com/), and a [*Guardian* API Key](http://open-platform.theguardian.com/).  When you register for your *New York Times* API Key, make sure to select the "Times Newswire API," as this is the specific key we need.  The *Guardian* API Key is universal in functionality.
+
+After you have registered for both services, you can then either use them as command line arguments when starting from a shell, or you can add them to a `lib/keys.js` file.  For the latter, simply clone [`lib/keys.sample.js`](lib/keys.sample.js) to `lib/keys.js`, and add your keys.  You will need an empty `lib/keys.js` file even if you don't use it, or else you will get an error.
+
 ## API
 The root path for the API is `/api/v1/articles/{source}`, and all responses are in JSON.  All requests should be GET requests.
 

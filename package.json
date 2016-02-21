@@ -1,0 +1,25 @@
+{
+  "name": "lazarus",
+  "version": "10.3.1",
+  "description": "An aggregate collection of news sources.",
+  "author": "Rudd Fawcett <rudd.fawcett@gmail.com>",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thepoetryproject/lazarus"
+  },
+  "bugs": {
+    "url": "https://github.com/thepoetryproject/lazarus/issues"
+  },
+  "dependencies": {
+    "express": "^4.13.4",
+    "q": "^1.4.1",
+    "shuffle-array": "^0.1.2",
+    "unirest": "^0.4.2"
+  },
+  "license": "MIT",
+  "readme": "README.md"
+}
